@@ -1,0 +1,4 @@
+node_modules
+test/coverage
+test/jasmine/coverage
+test/jest/coverage

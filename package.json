@@ -1,0 +1,32 @@
+{
+  "name": "nyc-issue-821",
+  "description": "Minimal reproduction attempt for issue 821 in the istanbuljs/nyc repo",
+  "author": "colinrcummings@gmail.com",
+  "version": "1.0.0",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colinrcummings/nyc-issue-821.git"
+  },
+  "scripts": {
+    "test:unit": "babel-node test/jasmine/run.js",
+    "test:integration": "jest --config=test/jest/config.json",
+    "test": "npm run test:unit && npm run test:integration",
+    "coverage:unit": "rm -rf test/jasmine/coverage && nyc --temp-directory=./test/jasmine/coverage/.nyc_output --report-dir=./test/jasmine/coverage --reporter=json --reporter=lcov --reporter=text-summary npm run test:unit",
+    "coverage:integration": "rm -rf test/jest/coverage && npm run test:integration -- --coverage",
+    "coverage": "rm -rf test/coverage && npm run coverage:unit && npm run coverage:integration && gulp copyCodeCoverage && nyc --temp-directory=./test/coverage/.nyc_output --report-dir=./test/coverage --reporter=lcov --reporter=text-summary report"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.4",
+    "eslint": "^5.15.1",
+    "eslint-config-colinrcummings": "^2.2.0",
+    "event-stream": "^4.0.1",
+    "gulp": "^4.0.0",
+    "gulp-rename": "^1.4.0",
+    "jasmine": "^3.3.1",
+    "jest": "^24.3.0",
+    "nyc": "^13.3.0"
+  }
+}

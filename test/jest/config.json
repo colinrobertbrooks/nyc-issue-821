@@ -1,0 +1,7 @@
+{
+  "rootDir": "../../",
+  "roots": ["test/jest/specs"],
+  "collectCoverageFrom": ["script.js"],
+  "coverageDirectory": "test/jest/coverage",
+  "coverageReporters": ["json", "lcov", "text-summary"]
+}
